@@ -1,0 +1,5 @@
+Para la planificación inicial del proyecto se ha utilizado la herramienta GanttProject. En el diagrama se han definido las tareas principales del proyecto, sus subtareas, la duración estimada de cada una, sus dependencias y los recursos asignados.
+
+La planificación comienza el 29/04/2026 con la lectura del enunciado y el reparto de roles, y finaliza el 28/05/2026 con la entrega y preparación de la exposición. Las tareas se han organizado en diferentes bloques: inicio del proyecto, análisis y planificación, base de datos, frontend, backend, integración frontend-backend, documentación y revisión final.
+
+Esta primera versión del diagrama se considera la línea base inicial del proyecto. A partir de ella se compararán posteriormente las desviaciones producidas durante el desarrollo, tanto en fechas como en asignación de recursos y costes.
