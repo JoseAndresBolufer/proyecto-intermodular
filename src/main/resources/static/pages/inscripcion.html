@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoraMón Viatges | Inscripción</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <aside class="barra-lateral">
+
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../img/Logo.resize.PNG" alt="VoraMón Viatges">
+      </a>
+    </div>
+
+    <nav>
+      <a href="../index.html">Home</a>
+
+      <a href="inscripcion.html" class="active">Inscripción</a>
+
+      <a href="listado-destinos.html">Destinos</a>
+
+      <a href="listado-usuarios.html">Usuarios</a>
+
+      <a href="listado-guias.html">Guías</a>
+    </nav>
+
+  </aside>
+
+  <main class="contenido-principal">
+
+    <header class="cabecera">
+      <h1>Inscripción a destino</h1>
+      <span>Asignación de usuarios a destinos turísticos</span>
+    </header>
+
+    <section class="contenedor-formulario">
+
+      <p class="info-text">
+        Selecciona un usuario y un destino para realizar la inscripción.
+      </p>
+
+      <form>
+
+        <h2>Datos de inscripción</h2>
+
+        <div class="grupo-formulario">
+          <label for="usuario">Usuario</label>
+
+          <select id="usuario" name="usuario" required>
+            <option value="">
+              Aún no hay usuarios registrados
+            </option>
+          </select>
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="destino">Destino</label>
+
+          <select id="destino" name="destino" required>
+            <option value="">
+              Aún no hay destinos registrados
+            </option>
+          </select>
+        </div>
+
+        <button type="submit">
+          Realizar inscripción
+        </button>
+
+      </form>
+
+    </section>
+
+    <section class="contenedor-tabla tabla-inscripciones">
+
+      <div class="cabecera-seccion">
+        <h2>Inscripciones actuales</h2>
+      </div>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Destino</th>
+            <th>Pasaporte requerido</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td colspan="4">
+              No hay inscripciones para mostrar.
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

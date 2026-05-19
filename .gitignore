@@ -1,17 +1,27 @@
-# Dependencias
-node_modules/
+# Documentación privada / no versionada
+private/
 
-# Archivos de entorno
-.env
+# Archivos comprimidos
+*.zip
+*.rar
+*.7z
 
-# Sistema
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+
+# Sistema operativo
 .DS_Store
+Thumbs.db
+
+# Maven
+target/
 
 # IDEs
-.vscode/
+.classpath
+.project
+.settings/
+.factorypath
 .idea/
-
-# Logs
-*.log
-
-private/
+.vscode/
