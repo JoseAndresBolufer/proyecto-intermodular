@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoraMón Viatges | Detalle usuario</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <aside class="barra-lateral">
+
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../img/Logo.resize.PNG" alt="VoraMón Viatges">
+      </a>
+    </div>
+
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="inscripcion.html">Inscripción</a>
+      <a href="listado-destinos.html">Destinos</a>
+      <a href="listado-usuarios.html" class="active">Usuarios</a>
+      <a href="listado-guias.html">Guías</a>
+    </nav>
+
+  </aside>
+
+  <main class="contenido-principal">
+
+    <header class="cabecera">
+      <h1>Detalle del usuario</h1>
+      <span>Información completa del usuario seleccionado</span>
+    </header>
+
+    <section class="tarjeta-detalle">
+
+      <h2>Laura Martínez</h2>
+
+      <p><strong>Email:</strong> laura@email.com</p>
+      <p><strong>Teléfono:</strong> 600123456</p>
+      <p><strong>Fecha de nacimiento:</strong> 12/05/1995</p>
+      <p><strong>Nacionalidad:</strong> Española</p>
+
+    </section>
+
+    <section class="tarjeta-detalle">
+
+      <h2>Datos del pasaporte</h2>
+
+      <p><strong>Número:</strong> ABC123456</p>
+      <p><strong>País de expedición:</strong> España</p>
+      <p><strong>Fecha de caducidad:</strong> 20/08/2030</p>
+
+    </section>
+
+    <div class="acciones-detalle">
+
+      <button onclick="location.href='modificar-usuario.html'">
+        Modificar usuario
+      </button>
+
+      <button class="boton-eliminar">
+        Eliminar usuario
+      </button>
+
+    </div>
+
+    <section class="contenedor-tabla seccion-detalle">
+
+      <div class="cabecera-seccion">
+        <h2>Destinos inscritos</h2>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Destino</th>
+            <th>País</th>
+            <th>Pasaporte requerido</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Tokio</td>
+            <td>Japón</td>
+            <td>Sí</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

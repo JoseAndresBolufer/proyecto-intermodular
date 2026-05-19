@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoraMón Viatges | Modificar usuario</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <aside class="barra-lateral">
+
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../img/Logo.resize.PNG" alt="VoraMón Viatges">
+      </a>
+    </div>
+
+    <nav>
+      <a href="../index.html">Home</a>
+
+      <a href="inscripcion.html">Inscripción</a>
+
+      <a href="listado-destinos.html">Destinos</a>
+
+      <a href="listado-usuarios.html"  class="active">Usuarios</a>
+
+      <a href="listado-guias.html">Guías</a>
+    </nav>
+
+  </aside>
+
+  <main class="contenido-principal">
+
+    <header class="cabecera">
+      <h1>Modificar usuario</h1>
+      <span>Edición de datos personales y pasaporte</span>
+    </header>
+
+    <section class="contenedor-formulario">
+
+      <p class="info-text">
+        Modifica los datos del usuario seleccionado. 
+        Los campos de pasaporte pueden dejarse vacíos si el usuario todavía no dispone de él.
+      </p>
+
+      <form>
+
+        <h2>Datos personales</h2>
+
+        <div class="grupo-formulario">
+          <label for="nombre">Nombre</label>
+
+          <input 
+            type="text"
+            id="nombre"
+            name="nombre"
+            value="Carlos"
+            required>
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="apellidos">Apellidos</label>
+
+          <input 
+            type="text"
+            id="apellidos"
+            name="apellidos"
+            value="Pérez"
+            required>
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="email">Email</label>
+
+          <input 
+            type="email"
+            id="email"
+            name="email"
+            value="carlos@email.com"
+            required>
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="telefono">Teléfono</label>
+
+          <input 
+            type="tel"
+            id="telefono"
+            name="telefono"
+            value="622987654"
+            pattern="[0-9]{9}"
+            required>
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="fechaNacimiento">
+            Fecha de nacimiento
+          </label>
+
+          <input 
+            type="date"
+            id="fechaNacimiento"
+            name="fechaNacimiento"
+            value="1992-04-15"
+            required>
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="nacionalidad">Nacionalidad</label>
+          <input 
+          type="text" 
+          id="nacionalidad" 
+          name="nacionalidad" 
+          value="Española"
+          required>
+        </div>
+
+        <h2>Datos del pasaporte</h2>
+
+        <div class="grupo-formulario">
+          <label for="numeroPasaporte">
+            Número de pasaporte
+          </label>
+
+          <input 
+            type="text"
+            id="numeroPasaporte"
+            name="numeroPasaporte"
+            placeholder="Aún no registrado">
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="paisExpedicion">
+            País de expedición
+          </label>
+
+          <input 
+            type="text"
+            id="paisExpedicion"
+            name="paisExpedicion"
+            placeholder="Aún no registrado">
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="fechaCaducidad">
+            Fecha de caducidad
+          </label>
+
+          <input 
+            type="date"
+            id="fechaCaducidad"
+            name="fechaCaducidad">
+        </div>
+
+        <div class="botones-formulario">
+          <button type="submit">
+            Guardar cambios
+          </button>
+
+          <button type="button" onclick="history.back()">
+            Volver
+          </button>
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

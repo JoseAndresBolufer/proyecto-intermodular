@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agencia de Viajes | Home</title>
+  <link rel="stylesheet" href="css/styles4.css" />
+</head>
+<body>
+
+  <aside class="barra-lateral">
+    
+    <div class="logo">
+        <a href="index4.html">
+            <img src="img/Logo.resize.PNG" alt="VoraMón Viatges">
+        </a>
+        
+    </div>
+
+    <nav>
+      <a href="index4.html" class="active">Home</a>
+
+      <a href="pages/inscripcion.html">Inscripción</a>
+
+      <a href="pages/listado-destinos.html">Destinos</a>
+
+      <a href="pages/listado-usuarios.html">Usuarios</a>
+
+      <a href="pages/listado-guias.html">Guías</a>
+    </nav>
+  </aside>
+
+  <main class="contenido-principal">
+
+    <header class="cabecera">
+      <div>
+        <h1>VoraMón Viatges</h1>
+        <span>Aplicación interna para la administración de la agencia de viajes</span>
+      </div>
+    </header>
+
+    <section class="bienvenida">
+      <h2>Panel de control</h2>
+      <p>
+        Panel de gestión de usuarios, destinos, guías, pasaportes
+        e inscripciones a los viajes disponibles de la agencia.
+      </p>
+    </section>
+
+    <section class="tarjetas">
+
+      <article class="tarjeta" 
+        onclick="location.href='pages/inscripcion.html'">
+        <h3>Inscripción</h3>
+        <p>Registrar usuarios en destinos turísticos disponibles.</p>
+        <button>Acceder</button>
+      </article>
+
+      <article class="tarjeta"
+        onclick="location.href='pages/listado-destinos.html'">
+        <h3>Destinos</h3>
+        <p>Consultar los destinos turísticos, guías asignados y usuarios inscritos.</p>
+        <button>Ver destinos</button>
+      </article>
+
+      <article class="tarjeta"
+       onclick="location.href='pages/listado-usuarios.html'">
+        <h3>Usuarios</h3>
+        <p>Consultar, modificar o eliminar usuarios registrados.</p>
+        <button>Ver usuarios</button>
+      </article>
+      
+      <article class="tarjeta"
+       onclick="location.href='pages/listado-guias.html'">
+        <h3>Guías</h3>
+        <p>Consultar, modificar o eliminar guías turísticos registrados.</p>
+        <button>Ver guías</button>
+      </article>
+      
+      <article class="tarjeta"
+       onclick="location.href='pages/crear-usuario.html'">
+        <h3>Crear usuario</h3>
+        <p>Registrar nuevos usuarios y sus datos de pasaporte.</p>
+        <button>Crear</button>
+      </article>
+
+      <article class="tarjeta"
+       onclick="location.href='pages/crear-destino.html'">
+        <h3>Crear destino</h3>
+        <p>Añadir nuevos destinos turísticos a la agencia.</p>
+        <button>Crear</button>
+      </article>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
