@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoraMón Viatges | Crear destino</title>
+  <link rel="stylesheet" href="../css/styles4.css" />
+</head>
+<body>
+
+  <aside class="barra-lateral">
+    <div class="logo">
+      <a href="../index4.html">
+        <img src="../img/Logo.resize.PNG" alt="VoraMón Viatges">
+      </a>
+    </div>
+
+    <nav>
+      <a href="../index4.html">Home</a>
+
+      <a href="inscripcion.html">Inscripción</a>
+
+      <a href="listado-destinos.html">Destinos</a>
+
+      <a href="listado-usuarios.html">Usuarios</a>
+
+      <a href="listado-guias.html">Guías</a>
+    </nav>
+  </aside>
+
+  <main class="contenido-principal">
+
+    <header class="cabecera">
+      <h1>Crear destino</h1>
+      <span>Alta de nuevos destinos turísticos</span>
+    </header>
+
+    <section class="contenedor-formulario">
+      <p class="info-text">
+        Introduce los datos del destino. Si el destino requiere pasaporte, los usuarios deberán tenerlo registrado para poder inscribirse.
+      </p>
+
+      <form>
+
+        <h2>Datos del destino</h2>
+
+        <div class="grupo-formulario">
+          <label for="ciudad">Ciudad</label>
+          <input type="text" id="ciudad" name="ciudad" required>
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="pais">País</label>
+          <input type="text" id="pais" name="pais" required>
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="precio">Precio (desde)</label>
+          <input type="number" id="precio" name="precio" min="0" step="0.01" placeholder="Ej: 750.00" required>
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="requierePasaporte">¿Requiere pasaporte?</label>
+          <select id="requierePasaporte" name="requierePasaporte" required>
+            <option value="">Selecciona una opción</option>
+            <option value="true">Sí</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+
+        <button type="submit">Guardar destino</button>
+
+      </form>
+    </section>
+
+  </main>
+
+</body>
+</html>

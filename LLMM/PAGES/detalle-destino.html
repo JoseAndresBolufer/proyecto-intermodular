@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoraMón Viatges | Detalle destino</title>
+  <link rel="stylesheet" href="../css/styles4.css" />
+</head>
+<body>
+
+  <aside class="barra-lateral">
+
+    <div class="logo">
+      <a href="../index4.html">
+        <img src="../img/Logo.resize.PNG" alt="VoraMón Viatges">
+      </a>
+    </div>
+
+    <nav>
+      <a href="../index4.html">Home</a>
+
+      <a href="inscripcion.html">Inscripción</a>
+
+      <a href="listado-destinos.html" class="active">Destinos</a>
+
+      <a href="listado-usuarios.html">Usuarios</a>
+
+      <a href="listado-guias.html">Guías</a>
+    </nav>
+
+  </aside>
+
+  <main class="contenido-principal">
+
+    <header class="cabecera">
+      <h1>Detalle del destino</h1>
+      <span>
+        Información detallada del destino seleccionado
+      </span>
+    </header>
+
+    <!-- INFORMACIÓN DESTINO -->
+
+    <section class="tarjeta-detalle">
+
+      <h2 id="destinoNombre">
+        Tokio
+      </h2>
+
+      <p>
+        <strong>País:</strong>
+        <span id="destinoPais">Japón</span>
+      </p>
+
+      <p>
+        <strong>Precio desde:</strong>
+        <span id="destinoPrecio">1200 €</span>
+      </p>
+
+      <p>
+        <strong>Pasaporte requerido:</strong>
+        <span id="destinoPasaporte">Sí</span>
+      </p>
+
+    </section>
+
+    <div class="acciones-detalle">
+
+      <button onclick="location.href='modificar-destino.html'">
+      Modificar destino
+      </button>
+
+      <button class="boton-eliminar">
+      Eliminar destino
+      </button>
+
+    </div>
+
+    <!-- USUARIOS INSCRITOS -->
+
+    <section class="contenedor-tabla seccion-detalle">
+
+      <div class="cabecera-seccion">
+        <h2>Usuarios inscritos</h2>
+      </div>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Pasaporte</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>Laura Martínez</td>
+            <td>laura@email.com</td>
+            <td>Sí</td>
+          </tr>
+
+          <tr>
+            <td>Carlos Pérez</td>
+            <td>carlos@email.com</td>
+            <td>No</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+    <!-- GUÍAS ASIGNADOS -->
+
+    <section class="contenedor-tabla seccion-detalle">
+
+      <div class="cabecera-seccion">
+        <h2>Guías asignados</h2>
+      </div>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>María López</td>
+            <td>Historia</td>
+            <td>maria@voramon.com</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

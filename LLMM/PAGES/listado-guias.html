@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoraMón Viatges | Guías</title>
+  <link rel="stylesheet" href="../css/styles4.css" />
+</head>
+<body>
+
+  <aside class="barra-lateral">
+
+    <div class="logo">
+      <a href="../index4.html">
+        <img src="../img/Logo.resize.PNG" alt="VoraMón Viatges">
+      </a>
+    </div>
+
+    <nav>
+      <a href="../index4.html">Home</a>
+
+      <a href="inscripcion.html">Inscripción</a>
+
+      <a href="listado-destinos.html">Destinos</a>
+
+      <a href="listado-usuarios.html">Usuarios</a>
+
+      <a href="listado-guias.html" class="active">Guías</a>
+    </nav>
+
+  </aside>
+
+  <main class="contenido-principal">
+
+    <header class="cabecera">
+      <h1>Guías registrados</h1>
+      <span>Gestión y consulta de guías turísticos de la agencia</span>
+    </header>
+
+  <div class="barra-acciones">
+
+    <button onclick="location.href='crear-guia.html'">
+      Crear guía
+    </button>
+
+    <div class="buscador">
+      <input type="text" placeholder="Buscar guía...">
+    </div>
+
+  </div>
+
+    <section class="contenedor-tabla">
+
+      <div class="cabecera-seccion">
+        <h2>Listado de guías</h2>
+      </div>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Email</th>
+            <th>Destino</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>María López</td>
+            <td>Historia</td>
+            <td>maria@voramon.com</td>
+            <td>París</td>
+
+            <td>
+              <button onclick="location.href='detalle-guia.html'">
+                Ver más
+              </button>
+
+              <button onclick="location.href='modificar-guia.html'">
+                Modificar
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Javier Torres</td>
+            <td>Arquitectura</td>
+            <td>javier@voramon.com</td>
+            <td>Roma</td>
+
+            <td>
+              <button onclick="location.href='detalle-guia.html'">
+                Ver más
+              </button>
+
+              <button onclick="location.href='modificar-guia.html'">
+                Modificar
+              </button>
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

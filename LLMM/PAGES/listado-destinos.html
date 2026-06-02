@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoraMón Viatges | Destinos</title>
+  <link rel="stylesheet" href="../css/styles4.css" />
+</head>
+<body>
+
+  <aside class="barra-lateral">
+
+    <div class="logo">
+      <a href="../index4.html">
+        <img src="../img/Logo.resize.PNG" alt="VoraMón Viatges">
+      </a>
+    </div>
+
+    <nav>
+      <a href="../index4.html">Home</a>
+
+      <a href="inscripcion.html">Inscripción</a>
+
+      <a href="listado-destinos.html" class="active">Destinos</a>
+
+      <a href="listado-usuarios.html">Usuarios</a>
+
+      <a href="listado-guias.html">Guías</a>
+    </nav>
+
+  </aside>
+
+  <main class="contenido-principal">
+
+    <header class="cabecera">
+      <h1>Destinos</h1>
+      <span>Consulta de destinos turísticos disponibles</span>
+    </header>
+
+    <div class="barra-acciones">
+
+      <button onclick="location.href='crear-destino.html'">
+        Crear destino
+      </button>
+
+      <div class="buscador">
+        <input type="text" placeholder="Buscar destino...">
+      </div>
+
+    </div>
+
+    <section class="lista-destinos">
+
+      <article class="tarjeta-destino">
+        <h2>Roma</h2>
+        <p class="pais-destino">Italia</p>
+
+        <p>
+          <strong>Desde:</strong> 450 €
+        </p>
+
+        <p>
+          <strong>Pasaporte:</strong> No requerido
+        </p>
+
+        <button onclick="location.href='detalle-destino.html'">
+          + info
+        </button>
+      </article>
+
+      <article class="tarjeta-destino">
+        <h2>Tokio</h2>
+        <p class="pais-destino">Japón</p>
+
+        <p>
+          <strong>Desde:</strong> 1200 €
+        </p>
+
+        <p>
+          <strong>Pasaporte:</strong> Requerido
+        </p>
+
+        <button onclick="location.href='detalle-destino.html'">
+          + info
+        </button>
+      </article>
+
+      <article class="tarjeta-destino">
+        <h2>París</h2>
+        <p class="pais-destino">Francia</p>
+
+        <p>
+          <strong>Desde:</strong> 380 €
+        </p>
+
+        <p>
+          <strong>Pasaporte:</strong> No requerido
+        </p>
+
+        <button onclick="location.href='detalle-destino.html'">
+          + info
+        </button>
+      </article>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
