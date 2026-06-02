@@ -3,31 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Agencia de Viajes | Home</title>
-  <link rel="stylesheet" href="css/styles4.css" />
+
+  <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
 
   <aside class="barra-lateral">
-    
+
     <div class="logo">
-        <a href="index4.html">
-            <img src="img/Logo.resize.PNG" alt="VoraMón Viatges">
-        </a>
-        
+      <a href="index.html">
+        <img src="img/Logo.resize.PNG" alt="VoraMón Viatges">
+      </a>
     </div>
 
     <nav>
-      <a href="index4.html" class="active">Home</a>
-
+      <a href="index.html" class="active">Home</a>
       <a href="pages/inscripcion.html">Inscripción</a>
-
       <a href="pages/listado-destinos.html">Destinos</a>
-
       <a href="pages/listado-usuarios.html">Usuarios</a>
-
       <a href="pages/listado-guias.html">Guías</a>
     </nav>
+
   </aside>
 
   <main class="contenido-principal">
@@ -49,46 +47,46 @@
 
     <section class="tarjetas">
 
-      <article class="tarjeta" 
-        onclick="location.href='pages/inscripcion.html'">
+      <article class="tarjeta" onclick="location.href='pages/inscripcion.html'">
         <h3>Inscripción</h3>
         <p>Registrar usuarios en destinos turísticos disponibles.</p>
-        <button>Acceder</button>
+        <button type="button">Acceder</button>
       </article>
 
-      <article class="tarjeta"
-        onclick="location.href='pages/listado-destinos.html'">
+      <article class="tarjeta" onclick="location.href='pages/listado-destinos.html'">
         <h3>Destinos</h3>
         <p>Consultar los destinos turísticos, guías asignados y usuarios inscritos.</p>
-        <button>Ver destinos</button>
+        <button type="button">Ver destinos</button>
       </article>
 
-      <article class="tarjeta"
-       onclick="location.href='pages/listado-usuarios.html'">
+      <article class="tarjeta" onclick="location.href='pages/listado-usuarios.html'">
         <h3>Usuarios</h3>
         <p>Consultar, modificar o eliminar usuarios registrados.</p>
-        <button>Ver usuarios</button>
-      </article>
-      
-      <article class="tarjeta"
-       onclick="location.href='pages/listado-guias.html'">
-        <h3>Guías</h3>
-        <p>Consultar, modificar o eliminar guías turísticos registrados.</p>
-        <button>Ver guías</button>
-      </article>
-      
-      <article class="tarjeta"
-       onclick="location.href='pages/crear-usuario.html'">
-        <h3>Crear usuario</h3>
-        <p>Registrar nuevos usuarios y sus datos de pasaporte.</p>
-        <button>Crear</button>
+        <button type="button">Ver usuarios</button>
       </article>
 
-      <article class="tarjeta"
-       onclick="location.href='pages/crear-destino.html'">
+      <article class="tarjeta" onclick="location.href='pages/listado-guias.html'">
+        <h3>Guías</h3>
+        <p>Consultar, modificar o eliminar guías turísticos registrados.</p>
+        <button type="button">Ver guías</button>
+      </article>
+
+      <article class="tarjeta" onclick="location.href='pages/crear-usuario.html'">
+        <h3>Crear usuario</h3>
+        <p>Registrar nuevos usuarios y sus datos de pasaporte.</p>
+        <button type="button">Crear</button>
+      </article>
+
+      <article class="tarjeta" onclick="location.href='pages/crear-destino.html'">
         <h3>Crear destino</h3>
         <p>Añadir nuevos destinos turísticos a la agencia.</p>
-        <button>Crear</button>
+        <button type="button">Crear</button>
+      </article>
+
+      <article class="tarjeta" onclick="location.href='pages/crear-guia.html'">
+        <h3>Crear guía</h3>
+        <p>Registrar nuevos guías turísticos para los destinos.</p>
+        <button type="button">Crear</button>
       </article>
 
     </section>
