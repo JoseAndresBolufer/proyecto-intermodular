@@ -27,3 +27,13 @@ values ('Ana', 'Martinez', 'Arquitectura', 1);
 
 insert into guia (nombre, apellidos, especialidad, id_destino)
 values ('John', 'Smith', 'Geografia', 2);
+
+
+insert into reserva (id_usuario, id_destino)
+values (1, 1);
+
+insert into reserva (id_usuario, id_destino)
+values (2, 1);
+
+insert into reserva (id_usuario, id_destino)
+values (3, 2);
