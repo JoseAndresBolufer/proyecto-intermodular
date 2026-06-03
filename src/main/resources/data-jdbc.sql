@@ -12,3 +12,18 @@ INSERT INTO pasaporte (id, numero, pais_expedicion, fecha_caducidad, id_usuario)
 (2, 'Y7654321', 'España', '2029-09-15', 2);
 
 ALTER TABLE pasaporte ALTER COLUMN id RESTART WITH 3;
+
+insert into destino (ciudad, pais, precio, requiere_pasaporte)
+values ('Roma', 'Italia', 450.00, false);
+
+insert into destino (ciudad, pais, precio, requiere_pasaporte)
+values ('Nueva York', 'Estados Unidos', 1200.00, true);
+
+insert into guia (nombre, apellidos, especialidad, id_destino)
+values ('Mario', 'Rossi', 'Historia', 1);
+
+insert into guia (nombre, apellidos, especialidad, id_destino)
+values ('Ana', 'Martinez', 'Arquitectura', 1);
+
+insert into guia (nombre, apellidos, especialidad, id_destino)
+values ('John', 'Smith', 'Geografia', 2);
