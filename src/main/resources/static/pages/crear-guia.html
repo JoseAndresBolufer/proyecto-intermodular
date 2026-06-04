@@ -43,7 +43,7 @@
         Introduce los datos del guía y selecciona su especialidad principal.
       </p>
 
-      <form>
+      <form data-form-guia>
 
         <h2>Datos del guía</h2>
 
@@ -161,19 +161,19 @@
               Selecciona una especialidad
             </option>
 
-            <option value="geografia">
+            <option value="Geografia">
               Geografía
             </option>
 
-            <option value="historia">
+            <option value="Historia">
               Historia
             </option>
 
-            <option value="arquitectura">
+            <option value="Arquitectura">
               Arquitectura
             </option>
 
-            <option value="comida">
+            <option value="Comida">
               Comida
             </option>
 
@@ -187,23 +187,12 @@
 
           <select 
             id="destinoTrabajo"
-            name="destinoTrabajo"
+            name="idDestino"
+            data-select-destinos
             required>
 
             <option value="">
-              Selecciona un destino
-            </option>
-
-            <option value="roma">
-              Roma
-            </option>
-
-            <option value="tokio">
-              Tokio
-            </option>
-
-            <option value="paris">
-              París
+              Cargando destinos...
             </option>
 
           </select>

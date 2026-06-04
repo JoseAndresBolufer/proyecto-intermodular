@@ -4,12 +4,21 @@ document.addEventListener("DOMContentLoaded", () => {
     configurarFormularios();
     configurarBotonesEliminar();
     configurarBuscadores();
+
     cargarDestinos();
     cargarUsuarios();
     cargarReservas();
-    configurarFormularioReserva(); 
+    cargarListadoDestinos();
+    cargarListadoUsuarios();
+    cargarListadoGuias();
+
+    configurarFormularioReserva();
+    configurarFormularioDestino();
+    configurarFormularioUsuario();
+    configurarFormularioGuia();
 });
-  
+
+
   function mostrarMensaje(texto, tipo = "info") {
     let cajaMensaje = document.getElementById("mensaje");
   
@@ -46,7 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const formularios = document.querySelectorAll("form");
   
     formularios.forEach((formulario) => {
-    if (formulario.hasAttribute("data-form-reserva")) return;
+    if (
+    formulario.hasAttribute("data-form-reserva") ||
+    formulario.hasAttribute("data-form-destino") ||
+    formulario.hasAttribute("data-form-usuario") ||
+    formulario.hasAttribute("data-form-guia")
+    ) return;
 
       formulario.addEventListener("submit", (evento) => {
           evento.preventDefault();
@@ -225,5 +239,258 @@ async function cargarReservas() {
         `;
 
         tablaReservas.appendChild(fila);
+    });
+}
+
+async function cargarListadoDestinos() {
+    const contenedorDestinos = document.querySelector("[data-listado-destinos]");
+
+    if (!contenedorDestinos) return;
+
+    const destinos = await obtenerDatos("/destino");
+
+    contenedorDestinos.innerHTML = "";
+
+    if (destinos.length === 0) {
+        contenedorDestinos.innerHTML = "<p>No hay destinos para mostrar.</p>";
+        return;
+    }
+
+    destinos.forEach((destino) => {
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "tarjeta-destino";
+
+        tarjeta.innerHTML = `
+            <h2>${destino.ciudad}</h2>
+            <p class="pais-destino">${destino.pais}</p>
+
+            <p>
+                <strong>Desde:</strong> ${destino.precio} €
+            </p>
+
+            <p>
+                <strong>Pasaporte:</strong> ${destino.requierePasaporte ? "Requerido" : "No requerido"}
+            </p>
+
+            <button onclick="location.href='detalle-destino.html?id=${destino.id}'">
+                + info
+            </button>
+        `;
+
+        contenedorDestinos.appendChild(tarjeta);
+    });
+}
+
+async function cargarListadoUsuarios() {
+    const tablaUsuarios = document.querySelector("[data-tabla-usuarios]");
+
+    if (!tablaUsuarios) return;
+
+    const usuarios = await obtenerDatos("/usuario");
+
+    tablaUsuarios.innerHTML = "";
+
+    if (usuarios.length === 0) {
+        tablaUsuarios.innerHTML = `
+            <tr>
+                <td colspan="5">No hay usuarios para mostrar.</td>
+            </tr>
+        `;
+        return;
+    }
+
+    usuarios.forEach((usuario) => {
+        const fila = document.createElement("tr");
+
+        fila.innerHTML = `
+            <td>${usuario.nombre} ${usuario.apellidos}</td>
+            <td>${usuario.email}</td>
+            <td>${usuario.telefono}</td>
+            <td>${usuario.pasaporte ? "Sí" : "No"}</td>
+            <td>
+                <button onclick="location.href='detalle-usuario.html?id=${usuario.id}'">Ver más</button>
+                <button onclick="location.href='modificar-usuario.html?id=${usuario.id}'">Modificar</button>
+            </td>
+        `;
+
+        tablaUsuarios.appendChild(fila);
+    });
+}
+
+async function cargarListadoGuias() {
+    const tablaGuias = document.querySelector("[data-tabla-guias]");
+
+    if (!tablaGuias) return;
+
+    const guias = await obtenerDatos("/guia");
+    const destinos = await obtenerDatos("/destino");
+
+    tablaGuias.innerHTML = "";
+
+    if (guias.length === 0) {
+        tablaGuias.innerHTML = `
+            <tr>
+                <td colspan="5">No hay guías para mostrar.</td>
+            </tr>
+        `;
+        return;
+    }
+
+    guias.forEach((guia) => {
+        const destino = destinos.find((destino) => destino.id === guia.idDestino);
+        const fila = document.createElement("tr");
+
+        fila.innerHTML = `
+            <td>${guia.nombre} ${guia.apellidos}</td>
+            <td>${guia.especialidad}</td>
+            <td>No indicado</td>
+            <td>${destino ? destino.ciudad : "Sin destino"}</td>
+            <td>
+                <button onclick="location.href='detalle-guia.html?id=${guia.id}'">Ver más</button>
+                <button onclick="location.href='modificar-guia.html?id=${guia.id}'">Modificar</button>
+            </td>
+        `;
+
+        tablaGuias.appendChild(fila);
+    });
+}
+
+function configurarFormularioDestino() {
+    const formularioDestino = document.querySelector("[data-form-destino]");
+
+    if (!formularioDestino) return;
+
+    formularioDestino.addEventListener("submit", async (evento) => {
+        evento.preventDefault();
+
+        if (!formularioDestino.checkValidity()) {
+            mostrarMensaje("Revisa los campos del destino antes de continuar.", "error");
+            formularioDestino.reportValidity();
+            return;
+        }
+
+        const datos = Object.fromEntries(new FormData(formularioDestino));
+
+        const destino = {
+            ciudad: datos.ciudad,
+            pais: datos.pais,
+            precio: Number(datos.precio),
+            requierePasaporte: datos.requierePasaporte === "true"
+        };
+
+        try {
+            const respuesta = await fetch(`${API_URL}/destino`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(destino)
+            });
+
+            if (!respuesta.ok) {
+                throw new Error("No se pudo crear el destino.");
+            }
+
+            mostrarMensaje("Destino creado correctamente.", "ok");
+            formularioDestino.reset();
+
+        } catch (error) {
+            console.error(error);
+            mostrarMensaje("No se pudo crear el destino. Revisa los datos.", "error");
+        }
+    });
+}
+
+function configurarFormularioUsuario() {
+    const formularioUsuario = document.querySelector("[data-form-usuario]");
+
+    if (!formularioUsuario) return;
+
+    formularioUsuario.addEventListener("submit", async (evento) => {
+        evento.preventDefault();
+
+        if (!formularioUsuario.checkValidity()) {
+            mostrarMensaje("Revisa los campos del usuario antes de continuar.", "error");
+            formularioUsuario.reportValidity();
+            return;
+        }
+
+        const datos = Object.fromEntries(new FormData(formularioUsuario));
+
+        const usuario = {
+            nombre: datos.nombre,
+            apellidos: datos.apellidos,
+            email: datos.email,
+            telefono: datos.telefono,
+            fechaNacimiento: datos.fechaNacimiento
+        };
+
+        try {
+            const respuesta = await fetch(`${API_URL}/usuario`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(usuario)
+            });
+
+            if (!respuesta.ok) {
+                throw new Error("No se pudo crear el usuario.");
+            }
+
+            mostrarMensaje("Usuario creado correctamente.", "ok");
+            formularioUsuario.reset();
+
+        } catch (error) {
+            console.error(error);
+            mostrarMensaje("No se pudo crear el usuario. Revisa los datos.", "error");
+        }
+    });
+}
+
+function configurarFormularioGuia() {
+    const formularioGuia = document.querySelector("[data-form-guia]");
+
+    if (!formularioGuia) return;
+
+    formularioGuia.addEventListener("submit", async (evento) => {
+        evento.preventDefault();
+
+        if (!formularioGuia.checkValidity()) {
+            mostrarMensaje("Revisa los campos del guía antes de continuar.", "error");
+            formularioGuia.reportValidity();
+            return;
+        }
+
+        const datos = Object.fromEntries(new FormData(formularioGuia));
+
+        const guia = {
+            nombre: datos.nombre,
+            apellidos: datos.apellidos,
+            especialidad: datos.especialidad,
+            idDestino: Number(datos.idDestino)
+        };
+
+        try {
+            const respuesta = await fetch(`${API_URL}/guia`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(guia)
+            });
+
+            if (!respuesta.ok) {
+                throw new Error("No se pudo crear el guía.");
+            }
+
+            mostrarMensaje("Guía creado correctamente.", "ok");
+            formularioGuia.reset();
+            cargarDestinos();
+
+        } catch (error) {
+            console.error(error);
+            mostrarMensaje("No se pudo crear el guía. Revisa los datos.", "error");
+        }
     });
 }
