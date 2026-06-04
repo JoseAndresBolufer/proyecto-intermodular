@@ -43,16 +43,16 @@
         Selecciona un usuario y un destino para realizar la inscripción.
       </p>
 
-      <form>
+      <form data-form-reserva>
 
         <h2>Datos de inscripción</h2>
 
         <div class="grupo-formulario">
           <label for="usuario">Usuario</label>
 
-          <select id="usuario" name="usuario" required>
+          <select id="usuario" name="idUsuario" data-select-usuarios required>
             <option value="">
-              Aún no hay usuarios registrados
+              Cargando usuarios...
             </option>
           </select>
         </div>
@@ -60,9 +60,9 @@
         <div class="grupo-formulario">
           <label for="destino">Destino</label>
 
-          <select id="destino" name="destino" required>
+          <select id="destino" name="idDestino" data-select-destinos required>
             <option value="">
-              Aún no hay destinos registrados
+              Cargando destinos...
             </option>
           </select>
         </div>
@@ -92,10 +92,10 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody data-tabla-reservas>
           <tr>
             <td colspan="4">
-              No hay inscripciones para mostrar.
+              Cargando inscripciones...
             </td>
           </tr>
         </tbody>
