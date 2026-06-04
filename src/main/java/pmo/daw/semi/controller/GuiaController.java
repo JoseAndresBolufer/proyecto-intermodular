@@ -1,69 +1,160 @@
 package pmo.daw.semi.controller;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import pmo.daw.semi.controller.base.BaseController;
+import pmo.daw.semi.excepciones.ServiceException;
+import pmo.daw.semi.excepciones.TransactionManagerException;
 import pmo.daw.semi.model.entities.Guia;
 import pmo.daw.semi.model.service.GuiaService;
 
 @RestController
 @RequestMapping("/api/guia")
 public class GuiaController extends BaseController<Guia, Integer> {
-	private final GuiaService guiaService = GuiaService.getInstance();
 
-	@Override
-	@GetMapping("/{id}")
-	public ResponseEntity<List<Guia>> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private final GuiaService guiaService = GuiaService.getInstance();
 
-	@Override
-	public ResponseEntity<Guia> findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    @GetMapping
+    public ResponseEntity<List<Guia>> findAll() {
+        try {
+            List<Guia> guias = guiaService.findAll();
+            return ResponseEntity.ok(guias);
 
-	@Override
-	public ResponseEntity<Guia> save(Guia entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        } catch (TransactionManagerException e) {
+            return ResponseEntity.internalServerError().build();
 
-	@Override
-	public ResponseEntity<Guia> update(Integer id, Guia entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        } catch (ServiceException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 
-	@Override
-	public ResponseEntity<Void> deleteById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    @GetMapping("/{id}")
+    public ResponseEntity<Guia> findById(@PathVariable Integer id) {
+        try {
+            Guia guia = guiaService.findById(id);
+            return ResponseEntity.ok(guia);
 
-	public ResponseEntity<List<Guia>> findByIdDestino(Integer idDestino) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        } catch (TransactionManagerException e) {
+            return ResponseEntity.internalServerError().build();
 
-	public ResponseEntity<List<Guia>> findByDestinoIsNull() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        } catch (ServiceException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 
-	public ResponseEntity<Void> addDestino(Integer id, Integer idDestino) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    @PostMapping
+    public ResponseEntity<Guia> save(@RequestBody Guia guia) {
+        try {
+            Guia guiaCreado = guiaService.save(guia);
+            URI location = URI.create("/api/guia/" + guiaCreado.getId());
 
-	public ResponseEntity<Void> removeDestino(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}	
+            return ResponseEntity.created(location).body(guiaCreado);
+
+        } catch (TransactionManagerException e) {
+            return ResponseEntity.internalServerError().build();
+
+        } catch (ServiceException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @Override
+    @PutMapping("/{id}")
+    public ResponseEntity<Guia> update(@PathVariable Integer id, @RequestBody Guia guia) {
+        try {
+            Guia guiaModificado = guiaService.update(id, guia);
+            return ResponseEntity.ok(guiaModificado);
+
+        } catch (TransactionManagerException e) {
+            return ResponseEntity.internalServerError().build();
+
+        } catch (ServiceException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @Override
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Integer id) {
+        try {
+            guiaService.deleteById(id);
+            return ResponseEntity.noContent().build();
+
+        } catch (TransactionManagerException e) {
+            return ResponseEntity.internalServerError().build();
+
+        } catch (ServiceException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @GetMapping("/destino/{idDestino}")
+    public ResponseEntity<List<Guia>> findByIdDestino(@PathVariable Integer idDestino) {
+        try {
+            List<Guia> guias = guiaService.findByIdDestinoTransac(idDestino);
+            return ResponseEntity.ok(guias);
+
+        } catch (TransactionManagerException e) {
+            return ResponseEntity.internalServerError().build();
+
+        } catch (ServiceException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @GetMapping("/sin-destino")
+    public ResponseEntity<List<Guia>> findByDestinoIsNull() {
+        try {
+            List<Guia> guias = guiaService.findByDestinoIsNullTransac();
+            return ResponseEntity.ok(guias);
+
+        } catch (TransactionManagerException e) {
+            return ResponseEntity.internalServerError().build();
+
+        } catch (ServiceException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @PutMapping("/{id}/destino/{idDestino}")
+    public ResponseEntity<Void> addDestino(@PathVariable Integer id, @PathVariable Integer idDestino) {
+        try {
+            guiaService.addDestinoTransac(id, idDestino);
+            return ResponseEntity.noContent().build();
+
+        } catch (TransactionManagerException e) {
+            return ResponseEntity.internalServerError().build();
+
+        } catch (ServiceException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @DeleteMapping("/{id}/destino")
+    public ResponseEntity<Void> removeDestino(@PathVariable Integer id) {
+        try {
+            guiaService.removeDestinoTransac(id);
+            return ResponseEntity.noContent().build();
+
+        } catch (TransactionManagerException e) {
+            return ResponseEntity.internalServerError().build();
+
+        } catch (ServiceException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }
